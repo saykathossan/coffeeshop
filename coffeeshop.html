@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arabian Coffee Company Limited | Premium Coffee Experience</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-brown: #2C1B14;
+            --brand-gold: #D4AF37;
+            --brand-gold-light: #F4E4BC;
+            --brand-white: #FFFFFF;
+            --brand-cream: #F9F7F2;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--brand-cream);
+            color: var(--brand-brown);
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .gold-gradient {
+            background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%);
+        }
+
+        .hero-overlay {
+            background: linear-gradient(to right, rgba(44, 27, 20, 0.9), rgba(44, 27, 20, 0.4));
+        }
+
+        .nav-scrolled {
+            background-color: rgba(44, 27, 20, 0.95) !important;
+            backdrop-filter: blur(10px);
+            padding-top: 0.5rem !important;
+            padding-bottom: 0.5rem !important;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(44, 27, 20, 0.1);
+        }
+
+        .branch-img {
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .gallery-item img {
+            transition: transform 0.6s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--brand-cream);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--brand-brown);
+        }
+
+        #mobile-menu {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .btn-gold {
+            background-color: var(--brand-gold);
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .btn-gold:hover {
+            background-color: #B8860B;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-6 px-6 md:px-12 flex justify-between items-center text-white">
+        <div class="flex items-center gap-2">
+            <div class="w-10 h-10 gold-gradient flex items-center justify-center rounded-full">
+                <i class="fas fa-coffee text-white"></i>
+            </div>
+            <span class="text-xl font-bold tracking-widest uppercase font-serif">Arabian Coffee <span class="text-xs block font-sans tracking-normal opacity-80">Company Limited</span></span>
+        </div>
+
+        <div class="hidden md:flex gap-8 items-center font-medium uppercase text-xs tracking-widest">
+            <a href="#home" class="hover:text-amber-400 transition-colors">Home</a>
+            <a href="#about" class="hover:text-amber-400 transition-colors">About</a>
+            <a href="#branches" class="hover:text-amber-400 transition-colors">Branches</a>
+            <a href="#team" class="hover:text-amber-400 transition-colors">Our Team</a>
+            <a href="#gallery" class="hover:text-amber-400 transition-colors">Gallery</a>
+            <a href="#contact" class="btn-gold px-6 py-2 rounded-full">Contact Us</a>
+        </div>
+
+        <button id="menu-btn" class="md:hidden text-2xl">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-[#2C1B14] z-[60] flex flex-col items-center justify-center gap-8 text-white translate-x-full">
+        <button id="close-menu" class="absolute top-8 right-8 text-3xl">
+            <i class="fas fa-times"></i>
+        </button>
+        <a href="#home" class="text-2xl font-serif">Home</a>
+        <a href="#about" class="text-2xl font-serif">About Us</a>
+        <a href="#branches" class="text-2xl font-serif">Branches</a>
+        <a href="#team" class="text-2xl font-serif">Our Team</a>
+        <a href="#gallery" class="text-2xl font-serif">Gallery</a>
+        <a href="#contact" class="btn-gold px-8 py-3 rounded-full">Contact Us</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen flex items-center overflow-hidden">
+        <div class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Coffee Background" class="w-full h-full object-cover">
+            <div class="absolute inset-0 hero-overlay"></div>
+        </div>
+        
+        <div class="relative container mx-auto px-6 md:px-12 text-white">
+            <div class="max-w-2xl">
+                <span class="inline-block px-4 py-1 mb-4 border border-amber-500 text-amber-500 rounded-full text-xs font-semibold tracking-widest uppercase">The Heritage of Saudi Coffee</span>
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">Premium Arabian Coffee Experience</h1>
+                <p class="text-lg md:text-xl mb-10 opacity-90 leading-relaxed font-light">Experience the authentic taste of tradition. We source the finest beans to bring the rich heritage of Arabian hospitality to every cup.</p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#branches" class="btn-gold px-8 py-4 rounded-md text-center font-bold tracking-wider uppercase text-sm">Explore Branches</a>
+                    <a href="#about" class="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 px-8 py-4 rounded-md text-center font-bold tracking-wider uppercase text-sm transition-all">Our Story</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-white">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="About Coffee" class="rounded-lg shadow-2xl relative z-10">
+                    <div class="absolute -bottom-6 -right-6 w-64 h-64 bg-amber-100 rounded-lg -z-0"></div>
+                </div>
+                <div>
+                    <h2 class="text-4xl font-bold mb-6">Redefining Coffee Luxury in Saudi Arabia</h2>
+                    <p class="text-gray-600 mb-8 leading-relaxed">Arabian Coffee Company Limited was founded with a single vision: to elevate the traditional Saudi coffee experience into a world-class luxury brand. We blend centuries-old hospitality with modern brewing excellence.</p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
+                        <div class="p-4 border-l-4 border-amber-500 bg-amber-50">
+                            <h4 class="font-bold text-amber-900 mb-1">Our Mission</h4>
+                            <p class="text-sm text-gray-600">To preserve Saudi culture while leading the modern coffee industry.</p>
+                        </div>
+                        <div class="p-4 border-l-4 border-amber-500 bg-amber-50">
+                            <h4 class="font-bold text-amber-900 mb-1">Our Vision</h4>
+                            <p class="text-sm text-gray-600">To be the global ambassador of authentic Arabian coffee excellence.</p>
+                        </div>
+                    </div>
+
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-3 text-gray-700">
+                            <i class="fas fa-check-circle text-amber-500"></i>
+                            <span>Sustainably Sourced Specialty Beans</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-700">
+                            <i class="fas fa-check-circle text-amber-500"></i>
+                            <span>Award-Winning Master Baristas</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-700">
+                            <i class="fas fa-check-circle text-amber-500"></i>
+                            <span>Elegant Interior Designs for Every Branch</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Branches Section -->
+    <section id="branches" class="py-24 bg-stone-50">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Our Exclusive Branches</h2>
+                <div class="w-20 h-1 bg-amber-500 mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">Visit us in some of the most prestigious locations across the Kingdom.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Branch 1 -->
+                <div class="bg-white rounded-xl overflow-hidden card-hover border border-gray-100">
+                    <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Riyadh Branch" class="branch-img w-full">
+                    <div class="p-8 text-center">
+                        <h3 class="text-2xl font-bold mb-2">Riyadh Boulevard</h3>
+                        <p class="text-sm text-gray-500 mb-4 uppercase tracking-widest">Flagship Store</p>
+                        <p class="text-gray-600 mb-6 flex items-center justify-center gap-2">
+                            <i class="fas fa-map-marker-alt text-amber-500"></i>
+                            Prince Mohammed bin Salman St, Riyadh
+                        </p>
+                        <a href="https://maps.google.com" target="_blank" class="text-amber-600 font-bold hover:text-amber-800 flex items-center justify-center gap-2 transition-colors">
+                            View on Google Maps <i class="fas fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Branch 2 -->
+                <div class="bg-white rounded-xl overflow-hidden card-hover border border-gray-100">
+                    <img src="https://images.unsplash.com/photo-1559925393-8be0ec41b5ec?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Jeddah Branch" class="branch-img w-full">
+                    <div class="p-8 text-center">
+                        <h3 class="text-2xl font-bold mb-2">Jeddah Waterfront</h3>
+                        <p class="text-sm text-gray-500 mb-4 uppercase tracking-widest">Seaside Experience</p>
+                        <p class="text-gray-600 mb-6 flex items-center justify-center gap-2">
+                            <i class="fas fa-map-marker-alt text-amber-500"></i>
+                            King Abdulaziz Rd, Jeddah
+                        </p>
+                        <a href="https://maps.google.com" target="_blank" class="text-amber-600 font-bold hover:text-amber-800 flex items-center justify-center gap-2 transition-colors">
+                            View on Google Maps <i class="fas fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Branch 3 -->
+                <div class="bg-white rounded-xl overflow-hidden card-hover border border-gray-100">
+                    <img src="https://images.unsplash.com/photo-1521017432531-fbd92d744264?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Dammam Branch" class="branch-img w-full">
+                    <div class="p-8 text-center">
+                        <h3 class="text-2xl font-bold mb-2">Al Khobar Towers</h3>
+                        <p class="text-sm text-gray-500 mb-4 uppercase tracking-widest">Business Hub</p>
+                        <p class="text-gray-600 mb-6 flex items-center justify-center gap-2">
+                            <i class="fas fa-map-marker-alt text-amber-500"></i>
+                            King Fahd Road, Al Khobar
+                        </p>
+                        <a href="https://maps.google.com" target="_blank" class="text-amber-600 font-bold hover:text-amber-800 flex items-center justify-center gap-2 transition-colors">
+                            View on Google Maps <i class="fas fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="py-24 bg-white">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
+                <div>
+                    <h2 class="text-4xl font-bold mb-4">The Masters Behind the Craft</h2>
+                    <p class="text-gray-600 max-w-xl">Our team consists of certified master baristas and hospitality experts dedicated to your perfect cup.</p>
+                </div>
+                <div class="mt-8 md:mt-0">
+                    <button class="text-amber-600 font-bold hover:underline">Join our team <i class="fas fa-arrow-right ml-2"></i></button>
+                </div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Team 1 -->
+                <div class="group">
+                    <div class="relative overflow-hidden rounded-xl mb-4">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Team 1" class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-amber-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    </div>
+                    <h4 class="text-xl font-bold">Ahmed Al-Zahrani</h4>
+                    <p class="text-amber-600 text-sm uppercase tracking-widest">Chief Operations Officer</p>
+                </div>
+
+                <!-- Team 2 -->
+                <div class="group">
+                    <div class="relative overflow-hidden rounded-xl mb-4">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Team 2" class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-amber-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    </div>
+                    <h4 class="text-xl font-bold">Sara Mansour</h4>
+                    <p class="text-amber-600 text-sm uppercase tracking-widest">Lead Designer & Concept Artist</p>
+                </div>
+
+                <!-- Team 3 -->
+                <div class="group">
+                    <div class="relative overflow-hidden rounded-xl mb-4">
+                        <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Team 3" class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-amber-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    </div>
+                    <h4 class="text-xl font-bold">Khalid Hussain</h4>
+                    <p class="text-amber-600 text-sm uppercase tracking-widest">Head Master Barista</p>
+                </div>
+
+                <!-- Team 4 -->
+                <div class="group">
+                    <div class="relative overflow-hidden rounded-xl mb-4">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Team 4" class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-amber-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    </div>
+                    <h4 class="text-xl font-bold">Noura Al-Otaibi</h4>
+                    <p class="text-amber-600 text-sm uppercase tracking-widest">Customer Experience Manager</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-24 bg-stone-900 text-white">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Visual Journey</h2>
+                <p class="text-amber-500 uppercase tracking-widest text-sm mb-2">Moments Captured</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="gallery-item h-64 md:h-80"><img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Gallery 1" class="w-full h-full object-cover"></div>
+                <div class="gallery-item h-64 md:h-80"><img src="https://images.unsplash.com/photo-1497933322477-911b30faea1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Gallery 2" class="w-full h-full object-cover"></div>
+                <div class="gallery-item h-64 md:h-80 col-span-2"><img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Gallery 3" class="w-full h-full object-cover"></div>
+                <div class="gallery-item h-64 md:h-80 col-span-2"><img src="https://images.unsplash.com/photo-1524350300060-d39f447a24ac?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Gallery 4" class="w-full h-full object-cover"></div>
+                <div class="gallery-item h-64 md:h-80"><img src="https://images.unsplash.com/photo-1506372023823-741c83b836fe?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Gallery 5" class="w-full h-full object-cover"></div>
+                <div class="gallery-item h-64 md:h-80"><img src="https://images.unsplash.com/photo-1459755486867-b55449bb39ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Gallery 6" class="w-full h-full object-cover"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-white">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="bg-[#2C1B14] rounded-3xl overflow-hidden shadow-2xl flex flex-col lg:flex-row">
+                <div class="lg:w-1/2 p-12 text-white">
+                    <h2 class="text-4xl font-bold mb-8">Get in Touch</h2>
+                    <p class="opacity-80 mb-12">Whether you're interested in franchising, corporate catering, or just want to say hello, we'd love to hear from you.</p>
+                    
+                    <div class="space-y-8">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full border border-amber-500/30 flex items-center justify-center text-amber-500 flex-shrink-0">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm opacity-60 uppercase tracking-widest">Call Center</p>
+                                <p class="text-lg font-bold">+966 800 123 4567</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full border border-amber-500/30 flex items-center justify-center text-amber-500 flex-shrink-0">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm opacity-60 uppercase tracking-widest">Email Us</p>
+                                <p class="text-lg font-bold">concierge@arabiancoffee.co</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full border border-amber-500/30 flex items-center justify-center text-amber-500 flex-shrink-0">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm opacity-60 uppercase tracking-widest">WhatsApp Support</p>
+                                <a href="#" class="text-lg font-bold hover:text-amber-500 transition-colors">Chat with us now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-16 pt-8 border-t border-white/10 flex gap-6">
+                        <a href="#" class="text-xl hover:text-amber-500 transition-colors"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-xl hover:text-amber-500 transition-colors"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-xl hover:text-amber-500 transition-colors"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <div class="lg:w-1/2 bg-white p-12">
+                    <form id="contactForm" class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2 font-bold">Full Name</label>
+                                <input type="text" class="w-full border-b border-gray-300 py-2 focus:border-amber-500 outline-none transition-colors" placeholder="e.g. Abdullah Ali">
+                            </div>
+                            <div>
+                                <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2 font-bold">Email Address</label>
+                                <input type="email" class="w-full border-b border-gray-300 py-2 focus:border-amber-500 outline-none transition-colors" placeholder="email@example.com">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2 font-bold">Subject</label>
+                            <select class="w-full border-b border-gray-300 py-2 focus:border-amber-500 outline-none transition-colors">
+                                <option>General Inquiry</option>
+                                <option>Corporate Events</option>
+                                <option>Franchise Opportunity</option>
+                                <option>Feedback</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2 font-bold">Message</label>
+                            <textarea rows="4" class="w-full border-b border-gray-300 py-2 focus:border-amber-500 outline-none transition-colors" placeholder="How can we help you?"></textarea>
+                        </div>
+                        <button type="submit" class="w-full btn-gold py-4 rounded-md font-bold uppercase tracking-widest text-sm shadow-xl">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-stone-50 border-t border-gray-200 pt-20 pb-10">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="grid md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-2 md:col-span-1">
+                    <div class="flex items-center gap-2 mb-6 text-amber-900">
+                        <div class="w-10 h-10 gold-gradient flex items-center justify-center rounded-full">
+                            <i class="fas fa-coffee text-white"></i>
+                        </div>
+                        <span class="text-xl font-bold tracking-widest uppercase font-serif">Arabian Coffee</span>
+                    </div>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-6">Redefining the heritage of Saudi Arabian coffee through quality, hospitality, and luxury across the Kingdom.</p>
+                </div>
+
+                <div>
+                    <h5 class="font-bold mb-6 text-sm uppercase tracking-widest">Company</h5>
+                    <ul class="space-y-4 text-sm text-gray-500">
+                        <li><a href="#about" class="hover:text-amber-600 transition-colors">About Us</a></li>
+                        <li><a href="#branches" class="hover:text-amber-600 transition-colors">Our Branches</a></li>
+                        <li><a href="#" class="hover:text-amber-600 transition-colors">Sustainability</a></li>
+                        <li><a href="#" class="hover:text-amber-600 transition-colors">Careers</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="font-bold mb-6 text-sm uppercase tracking-widest">Support</h5>
+                    <ul class="space-y-4 text-sm text-gray-500">
+                        <li><a href="#" class="hover:text-amber-600 transition-colors">Contact Support</a></li>
+                        <li><a href="#" class="hover:text-amber-600 transition-colors">FAQs</a></li>
+                        <li><a href="#" class="hover:text-amber-600 transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-amber-600 transition-colors">Terms of Service</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="font-bold mb-6 text-sm uppercase tracking-widest">Newsletter</h5>
+                    <p class="text-xs text-gray-400 mb-4">Join our exclusive list for coffee heritage stories and news.</p>
+                    <div class="flex">
+                        <input type="email" placeholder="Email" class="bg-white border border-gray-200 px-4 py-2 w-full focus:outline-none focus:border-amber-500 text-sm">
+                        <button class="bg-amber-600 text-white px-4 py-2 hover:bg-amber-700 transition-colors">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-xs text-gray-400">&copy; 2024 Arabian Coffee Company Limited. All rights reserved.</p>
+                <div class="flex items-center gap-2">
+                    <span class="text-[10px] uppercase tracking-tighter text-gray-400">Crafted with Luxury</span>
+                    <i class="fas fa-heart text-red-400 text-[10px]"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Notification Container (No Alert Policy) -->
+    <div id="notification" class="fixed bottom-8 right-8 bg-green-600 text-white px-6 py-4 rounded-lg shadow-2xl translate-y-32 transition-transform duration-500 z-[100] flex items-center gap-3">
+        <i class="fas fa-check-circle"></i>
+        <span id="notif-text">Message sent successfully!</span>
+    </div>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('nav-scrolled');
+            } else {
+                nav.classList.remove('nav-scrolled');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const closeMenu = document.getElementById('close-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+
+        const toggleMenu = () => {
+            mobileMenu.classList.toggle('translate-x-full');
+            document.body.classList.toggle('overflow-hidden');
+        };
+
+        menuBtn.addEventListener('click', toggleMenu);
+        closeMenu.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+        // Form Handling
+        const contactForm = document.getElementById('contactForm');
+        const notification = document.getElementById('notification');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Visual feedback instead of alert()
+            notification.classList.remove('translate-y-32');
+            
+            setTimeout(() => {
+                notification.classList.add('translate-y-32');
+                contactForm.reset();
+            }, 3000);
+        });
+
+        // Simple smooth scroll adjustment for navbar height
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
